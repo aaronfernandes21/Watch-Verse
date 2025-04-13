@@ -66,11 +66,7 @@ Data powered by the [TMDB API](https://www.themoviedb.org/documentation/api)
 
 ---
 
-## 📜 License
 
-MIT License - [Project Webpage](http://yourprojecturl.com) (Replace with actual URL)
-
----
 
 
 
