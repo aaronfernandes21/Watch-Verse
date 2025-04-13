@@ -4,7 +4,7 @@
 Welcome to **WatchVerse**, your ultimate movie explorer web app powered by the [TMDB API](https://www.themoviedb.org/documentation/api).  
 Search, discover trending movies, view detailed movie info, and enjoy a sleek dark/light mode experience.
 
-Visit the app: [WatchVerse]([http://yourprojecturl.com](https://watchverse-navy.vercel.app/))
+Visit the app: [WatchVerse](https://watchverse-navy.vercel.app)
 
 ![WatchVerse Logo](./ss.png)
 
