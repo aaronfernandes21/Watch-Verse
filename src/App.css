@@ -1,0 +1,430 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light and Dark Mode */
+.App {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  color: #000;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.App.dark .navbar {
+  background-color: #111;
+  color: white;
+}
+
+/* Ensure proper spacing between search and toggle */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('MIXONE.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.logo {
+  font-family: 'MyCustomFont', sans-serif;
+  font-size: 3rem;
+  color: #ff5722;
+  text-align: center;
+}
+
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  flex: 1;
+  max-width: 500px;
+  border: 1px solid #ccc; /* Add border to the entire search bar */
+  border-radius: 5px; /* Optional: gives rounded corners to the search bar container */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none; /* Remove individual border for input */
+  background-color: transparent; /* Make input background transparent to show container border */
+  color: #000;
+}
+
+.App.dark .search-bar input {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0; /* Rounded corners on the button */
+  border: none; /* No border for the button */
+  background-color: #ff5722;
+  color: white;
+}
+
+.search-bar button:hover {
+  background-color: #e64a19;
+}
+
+
+/* Dark mode toggle */
+.dark-mode-toggle {
+  background-color: #ff5722;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #e64a19;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  color: #ff5722;
+}
+
+h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #ff5722;
+}
+
+/* Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  scroll-margin-top: 80px;
+}
+
+.movie-card {
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.App.dark .movie-card {
+  background-color: #222;
+  color: #f5f5f5;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #ddd;
+}
+
+.movie-card .title {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+.movie-card .overview {
+  padding: 0 1rem 1rem;
+  font-size: 0.9rem;
+  color: inherit;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.App.dark .modal-content {
+  background-color: #222;
+  color: #f5f5f5;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #ff5722;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #e64a19;
+}
+
+/* Buttons */
+button {
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border: 2px solid #ff5722; /* Add border around button */
+  background-color: transparent; /* Make background transparent so border is visible */
+  color: #ff5722; /* Button text color */
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #ff5722; /* Change background on hover */
+  color: white; /* Change text color on hover */
+}
+
+
+/* ====== MovieDetails Styles ====== */
+.movie-details {
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.trailer {
+  margin: 1.5rem 0;
+}
+
+.trailer iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 12px;
+}
+
+.cast-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.cast-card {
+  width: 120px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.cast-card:hover {
+  transform: scale(1.05);
+}
+
+.cast-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.actor-name {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.character-name {
+  font-style: italic;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  h1, h2 {
+    font-size: 1.3rem;
+  }
+
+  .navbar-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  .dark-mode-toggle {
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    padding: 12px;
+    max-height: 80vh;
+  }
+
+  .close-btn {
+    font-size: 1.3rem;
+  }
+}
+/* About Popup */
+/* About Popup */
+.about-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background for dark mode */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.about-content {
+  background-color: #ffffff; /* Default light background */
+  color: black; /* Default text color */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h3 {
+  margin-bottom: 1rem;
+  color: #ff5722;
+}
+
+.about-content p {
+  margin: 0.5rem 0;
+}
+
+.about-content a {
+  color: #ff5722;
+  text-decoration: none;
+}
+
+.about-content a:hover {
+  text-decoration: underline;
+}
+
+.close-about {
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #ff5722;
+  color: white;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.close-about:hover {
+  background-color: #e64a19;
+}
+
+/* Dark Mode Styles */
+.App.dark .about-content {
+  background-color: #2c2c2c; /* Dark background for dark mode */
+  color: white; /* Light text color for dark mode */
+}
+
+.App.dark .about-content h3 {
+  color: #ff5722; /* Keep the header color the same */
+}
+
+.App.dark .about-content p {
+  color: #e0e0e0; /* Light text color for paragraphs in dark mode */
+}
+
+.App.dark .about-content a {
+  color: #ff5722; /* Keep the link color the same */
+}
+
+.App.dark .about-content a:hover {
+  color: #e64a19; /* Slightly lighter color on hover in dark mode */
+}
+
+.App.dark .close-about {
+  background-color: #ff5722; /* Keep the close button the same */
+}
+
+.App.dark .close-about:hover {
+  background-color: #e64a19; /* Slightly darker color on hover */
+}
+.section-heading {
+  margin-top: 2rem;
+  padding-left: 0.5rem;
+}
